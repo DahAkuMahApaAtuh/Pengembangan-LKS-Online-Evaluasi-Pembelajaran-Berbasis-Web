@@ -1,18 +1,21 @@
 <?php
 
-use Illuminate\Http\Request;
+// Grouping Controller Directory Admin
+Route::namespace('Admin')->group(function () {
+    
+    Route::prefix('exam')->group(function () {
+        Route::post('/list', 'ExamController@index');
+        Route::post('/saved', 'ExamController@store');
+    });
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+    Route::prefix('question')->group(function () {
+        Route::post('/list', 'QuestionController@index');
+        Route::post('/saved', 'QuestionController@store');
+    });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::prefix('student')->group(function () {
+        Route::post('/list', 'StudentController@index');
+        Route::post('/saved', 'StudentController@store');
+    });
+
 });

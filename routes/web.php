@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Routing for student
+Route::prefix('exam')->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/info/{id}', 'ExamController@show');
+    Route::get('/info/{id}/student/{nis}', 'ExamController@show_with_student');
 });
+
+Route::get('/student/{nis}', 'StudentController@show');
