@@ -19,6 +19,7 @@ class CreateExamsTable extends Migration
             $table->enum('type', ['uas', 'uts', 'ulangan']);
             $table->integer('question_length');
             $table->string('time');
+            $table->date('valid_until');
             $table->timestamps();
         });
     }
