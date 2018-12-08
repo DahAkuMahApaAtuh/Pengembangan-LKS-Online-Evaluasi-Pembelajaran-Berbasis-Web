@@ -21,3 +21,7 @@ Route::prefix('exam')->group(function () {
 });
 
 Route::get('/student/{nis}', 'StudentController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

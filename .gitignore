@@ -3,9 +3,10 @@
 /public/storage
 /storage/*.key
 /vendor
+.env
 /public/images
 /public/css
 /public/js
 /public/fonts
 /public/mix-manifest.json
-.env
+
