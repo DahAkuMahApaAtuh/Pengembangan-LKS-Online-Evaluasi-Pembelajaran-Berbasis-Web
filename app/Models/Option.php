@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Student;
 use App\Models\Question;
+use App\Models\Student;
 
-class Answer extends Model
+class Option extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -14,10 +14,9 @@ class Answer extends Model
      * @var array
      */
     protected $fillable = [
-        'student_id',
         'question_id',
-        'given_answer',
-        'correct_answer'
+        'text',
+        'is_answer'
     ];
 
     /**
@@ -25,18 +24,18 @@ class Answer extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
-    
-    /**
-     * One to Many relation
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function question()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo (Question::class);
+    }
+
+    /**
+     * Many to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
     }
 }

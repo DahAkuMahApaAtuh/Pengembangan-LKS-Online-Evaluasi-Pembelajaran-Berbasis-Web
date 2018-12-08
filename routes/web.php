@@ -11,16 +11,16 @@
 |
 */
 Route::get('/', function () {
-    return view('home');
+    return redirect('examination');
 });
 
 // Routing for student
-Route::prefix('exam')->group(function () {
+Route::prefix('examination')->group(function () {
     Route::get('/', function () {
         return view('home');
     });
-    Route::get('/info/{id}', 'ExamController@show');
-    Route::get('/info/{id}/student/{nis}', 'ExamController@show_with_student');
+    Route::get('/info/{id}', 'TestController@show');
+    Route::get('/info/{id}/student/{nis}', 'TestController@show_with_student');
 });
 
 Route::get('/student/{nis}', 'StudentController@show');

@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Exam;
+use App\Models\Test;
+use App\Models\Option;
 
 class Question extends Model
 {
@@ -13,22 +14,26 @@ class Question extends Model
      * @var array
      */
     protected $fillable = [
-        'exam_id',
-        'question',
-        'choice_1',
-        'choice_2',
-        'choice_3',
-        'choice_4',
-        'correct_choice'
+        'text'
     ];
+
+    /**
+     * Many to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function tests()
+    {
+        return $this->belongsToMany(Test::class);
+    }
 
     /**
      * One to Many relation
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function exam()
+    public function options()
     {
-        return $this->belongsTo(Exam::class);
+        return $this->hasMany(Option::class);
     }
 }

@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Test;
-use App\Models\Response;
+use App\Models\Question;
+use App\Models\Student;
 
-class Student extends Model
+class Test extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -14,28 +14,28 @@ class Student extends Model
      * @var array
      */
     protected $fillable = [
-        'nis',
         'name',
-        'score'
+        'duration',
+        'end_date'
     ];
-
-    /**
-     * Many to Many relation
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
-     */
-    public function tests()
-    {
-        return $this->belongsToMany(Test::class);
-    }
     
     /**
      * Many to Many relation
      *
      * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
-    public function answers()
+    public function questions()
     {
-        return $this->belongsToMany(Response::class);
+        return $this->belongsToMany(Question::class);
+    }
+
+    /**
+     * Many to Many relation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
     }
 }

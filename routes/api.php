@@ -4,8 +4,8 @@
 Route::namespace('Admin')->group(function () {
     
     Route::prefix('exam')->group(function () {
-        Route::post('/list', 'ExamController@index');
-        Route::post('/saved', 'ExamController@store');
+        Route::post('/list', 'TestController@index');
+        Route::post('/saved', 'TestController@store');
     });
 
     Route::prefix('question')->group(function () {

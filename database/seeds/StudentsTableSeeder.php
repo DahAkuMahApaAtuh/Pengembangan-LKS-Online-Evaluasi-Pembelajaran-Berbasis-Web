@@ -4,7 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class UsersTableSeeder extends Seeder
+
+class StudentsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,20 +14,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('students')->insert([
             [
-                'name' => 'Nur Rizqoh',
-                'email' => 'rizqoh@mail.com',
-                'password' => bcrypt('rizqoh'),
-                'remember_token' => str_random(10),
+                'nis' => '12345',
+                'name' => 'Siswa Teladan',
                 'created_at'  => Carbon::now(),
                 'updated_at'  => Carbon::now()
             ],
             [
-                'name' => 'Eka Putra',
-                'email' => 'eka@mail.com',
-                'password' => bcrypt('eka'),
-                'remember_token' => str_random(10),
+                'nis' => '67890',
+                'name' => 'Siswa Berandalan',
                 'created_at'  => Carbon::now(),
                 'updated_at'  => Carbon::now()
             ]
