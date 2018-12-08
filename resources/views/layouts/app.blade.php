@@ -7,17 +7,16 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Online Exam Test</title>
-    <meta name="description" content="Aplikasi web tentang pngembangan evaluasi belajar pada siswa berbasis web">
-    <!-- <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" sizes="16x16"> -->
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -30,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Aplikasi web tentang pngembangan evaluasi belajar pada siswa berbasis web
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
@@ -71,15 +70,11 @@
                 </div>
             </div>
         </nav>
-        <div class="cover-banner">
-            <!-- <h1 class='align-center'>Hello World</h1> -->
-        </div>
 
         @yield('content')
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script> 
-    @yield('script')
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
