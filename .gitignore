@@ -8,3 +8,4 @@
 /public/js
 /public/fonts
 /public/mix-manifest.json
+.env
